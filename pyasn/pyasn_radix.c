@@ -595,7 +595,7 @@ add_pyobject_to_radix_tree(RadixObject *self, u_int32_t asn, u_int8_t prefixlen,
     PyObject *node_obj = NULL;
     prefix_t *prefix = NULL;
 
-    if (asn == 0 || prefixlen == 0)
+    if (asn <= -1 || prefixlen == 0)
         return 0;
 
     if ((prefix = prefix_pton(net_addr, prefixlen, &err_msg_i)) == NULL)  // works with IPv4 and IPv6 addresses
